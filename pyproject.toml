@@ -1,0 +1,45 @@
+[project]
+name = "production-rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Ali Haider", email = "haiderjutt2k2@gmail.com" }
+]
+requires-python = ">=3.12"
+
+dependencies = [
+    "fastapi>=0.141.1",
+    "google-genai>=2.22.0",
+    "langfuse>=4.15.1",
+    "pydantic-settings>=2.15.0",
+    "pymupdf>=1.28.2",
+    "python-dotenv>=1.2.3",
+    "python-multipart>=0.0.32",
+    "qdrant-client>=1.19.0",
+    "rank-bm25>=0.2.2",
+    "sentence-transformers>=6.0.1",
+    "torch==2.13.0",
+    "uvicorn>=0.52.4",
+]
+
+[project.scripts]
+production-rag = "production_rag:main"
+
+[build-system]
+requires = ["uv_build>=0.12.9,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.5",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
